@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background {
+    @apply bg-[#0F172A]
+}
+
+.normaltext {
+    @apply text-[13px] font-[14px]
+}
+
+.sidebar{
+    @apply bg-gray-800 mt-3 z-10 h-screen w-64
+}
+
+.ordersearch {
+    position: absolute;
+        inset: auto auto 0px 0px;
+        margin: 0px;
+        transform: translate3d(897px, 5637px, 0px);
+}

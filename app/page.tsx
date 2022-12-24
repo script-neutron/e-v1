@@ -1,57 +1,37 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import React from "react";
+import Brands from "./components/brands";
+import Discount from "./components/discounts";
+import Featured from "./components/featured";
+import TopCategories from "./components/topcategories";
+import chargeback from "./utils/images/chargeback.svg";
+import Image from "next/image";
+import Latest from "./components/latest";
+import Banner from "./navbar/banner";
 
-export default function Home() {
+type Props = {};
+
+export default function Page({}: Props) {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js 13!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://beta.nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js 13</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Explore the Next.js 13 playground.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates/next.js/app-directory?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>Deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+    <main>
+      <Banner />
+      <TopCategories />
+      <Discount />
+      <Brands />
+      <Featured />
+      <div className="mt-10 md:mx-12">
+        <div className="relative">
+          <Image src={chargeback} alt="banner" className="object-cover h-48" />
+          <div className="absolute bottom-5 ">
+            <h1 className="text-[#d5d8e0] mt-10 font-bold ml-3 sm:text-3xl sm:font-bold sm:mt-[30%]">
+              Get 7% charge back on Xshop
+            </h1>
+            <button className="bg-[#0F172A] rounded-lg font-medium ml-3 md:ml-6 sm:ml-11 mt-2 md:w-1/3">
+              <h1 className=" p-4 text-[#E3ECEF]">Learn More</h1>
+            </button>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+      </div>
+      <Latest />
+    </main>
+  );
 }
